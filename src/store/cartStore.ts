@@ -14,99 +14,48 @@ export interface CartState {
   clearCart: () => void;
   getVendorTotals: () => Record<string, number>;
   getGrandTotal: () => number;
-  getTotalItemsCount: () => number;
 }
 
 export const useCartStore = create<CartState>((set, get) => ({
-  itemsByVendor: {},
-
+  items: [],
   addItem: (product, quantity = 1) => {
     set((state) => {
-      const vendorId = product.vendorId;
-      const vendorItems = state.itemsByVendor[vendorId] || [];
-      const existingItemIndex = vendorItems.findIndex(item => item.product.id === product.id);
-
-      let newVendorItems;
-      if (existingItemIndex >= 0) {
-        newVendorItems = [...vendorItems];
-        newVendorItems[existingItemIndex] = {
-          ...newVendorItems[existingItemIndex],
-          quantity: newVendorItems[existingItemIndex].quantity + quantity,
+      const existingItem = state.items.find(item => item.product.id === product.id);
+      if (existingItem) {
+        return {
+          items: state.items.map(item =>
+            item.product.id === product.id
+              ? { ...item, quantity: item.quantity + quantity }
+              : item
+          ),
         };
-      } else {
-        newVendorItems = [...vendorItems, { product, quantity }];
       }
-
-      return {
-        itemsByVendor: {
-          ...state.itemsByVendor,
-          [vendorId]: newVendorItems,
-        },
-      };
+      return { items: [...state.items, { product, quantity }] };
     });
   },
-
   removeItem: (productId) => {
-    set((state) => {
-      const newItemsByVendor: Record<string, CartItem[]> = {};
-
-      for (const [vendorId, items] of Object.entries(state.itemsByVendor)) {
-        const filteredItems = items.filter(item => item.product.id !== productId);
-        if (filteredItems.length > 0) {
-          newItemsByVendor[vendorId] = filteredItems;
-        }
-      }
-
-      return { itemsByVendor: newItemsByVendor };
-    });
+    set((state) => ({
+      items: state.items.filter(item => item.product.id !== productId),
+    }));
   },
-
   updateQuantity: (productId, quantity) => {
-    set((state) => {
-      const newItemsByVendor: Record<string, CartItem[]> = {};
-
-      for (const [vendorId, items] of Object.entries(state.itemsByVendor)) {
-        newItemsByVendor[vendorId] = items.map(item =>
-          item.product.id === productId ? { ...item, quantity } : item
-        );
-      }
-
-      return { itemsByVendor: newItemsByVendor };
-    });
+    set((state) => ({
+      items: state.items.map(item =>
+        item.product.id === productId ? { ...item, quantity } : item
+      ),
+    }));
   },
-
-  clearCart: () => set({ itemsByVendor: {} }),
-
+  clearCart: () => set({ items: [] }),
   getVendorTotals: () => {
-    const { itemsByVendor } = get();
-    const totals: Record<string, number> = {};
-
-    for (const [vendorId, items] of Object.entries(itemsByVendor)) {
-      totals[vendorId] = items.reduce((sum, item) => sum + item.product.price * item.quantity, 0);
-    }
-
-    return totals;
+    const items = get().items;
+    return items.reduce((acc, item) => {
+      const vendorId = item.product.vendorId;
+      acc[vendorId] = (acc[vendorId] || 0) + item.product.price * item.quantity;
+      return acc;
+    }, {} as Record<string, number>);
   },
-
   getGrandTotal: () => {
-    const { itemsByVendor } = get();
-    let total = 0;
-
-    for (const items of Object.values(itemsByVendor)) {
-      total += items.reduce((sum, item) => sum + item.product.price * item.quantity, 0);
-    }
-
-    return total;
+    const items = get().items;
+    return items.reduce((total, item) => total + item.product.price * item.quantity, 0);
   },
-
-  getTotalItemsCount: () => {
-    const { itemsByVendor } = get();
-    let count = 0;
-
-    for (const items of Object.values(itemsByVendor)) {
-      count += items.reduce((sum, item) => sum + item.quantity, 0);
-    }
-
-    return count;
-  }
 }));
