@@ -5,8 +5,8 @@
 @layer base {
   :root {
     --color-surface: #FAFAF9;
-    --color-surface-dim: #F0F0F0; /* guessed */
-    --color-surface-bright: #FFFFFF; /* guessed */
+    --color-surface-dim: #F0F0F0;
+    --color-surface-bright: #FFFFFF;
     --color-surface-container-lowest: #FFFFFF;
     --color-surface-container-low: #F6F6F6;
     --color-surface-container: #F0F0F0;
