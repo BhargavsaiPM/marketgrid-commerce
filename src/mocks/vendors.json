@@ -1,0 +1,30 @@
+[
+  {
+    "id": "v1",
+    "name": "Lumen Electronics",
+    "type": "Tier-1",
+    "category": "Electronics",
+    "rating": 4.8
+  },
+  {
+    "id": "v2",
+    "name": "Aurora Home Goods",
+    "type": "Boutique",
+    "category": "Home & Living",
+    "rating": 4.6
+  },
+  {
+    "id": "v3",
+    "name": "Vertex Sportswear",
+    "type": "Verified",
+    "category": "Sports",
+    "rating": 4.7
+  },
+  {
+    "id": "v4",
+    "name": "Nimbus Beauty Co.",
+    "type": "Boutique",
+    "category": "Beauty",
+    "rating": 4.9
+  }
+]
