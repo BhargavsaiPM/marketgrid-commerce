@@ -27,6 +27,15 @@
     "status": "IN_STOCK"
   },
   {
+    "id": "p3_a",
+    "vendorId": "v1",
+    "name": "Quantum Mechanical Keyboard",
+    "price": 145.00,
+    "currency": "USD",
+    "stockCount": 12,
+    "status": "IN_STOCK"
+  },
+  {
     "id": "p4",
     "vendorId": "v2",
     "name": "Linen Weave Throw Blanket",
@@ -42,6 +51,15 @@
     "price": 42.00,
     "currency": "USD",
     "stockCount": 12,
+    "status": "LOW_STOCK"
+  },
+  {
+    "id": "p5_a",
+    "vendorId": "v2",
+    "name": "Amber Glass Table Lamp",
+    "price": 85.00,
+    "currency": "USD",
+    "stockCount": 4,
     "status": "LOW_STOCK"
   },
   {
@@ -63,6 +81,15 @@
     "status": "IN_STOCK"
   },
   {
+    "id": "p7_a",
+    "vendorId": "v3",
+    "name": "Core-Fit Compression Shirt",
+    "price": 35.00,
+    "currency": "USD",
+    "stockCount": 115,
+    "status": "IN_STOCK"
+  },
+  {
     "id": "p8",
     "vendorId": "v4",
     "name": "Rosewater Renewal Serum",
@@ -78,6 +105,15 @@
     "price": 45.00,
     "currency": "USD",
     "stockCount": 35,
+    "status": "IN_STOCK"
+  },
+  {
+    "id": "p9_a",
+    "vendorId": "v4",
+    "name": "Vitamin C Radiance Booster",
+    "price": 32.00,
+    "currency": "USD",
+    "stockCount": 60,
     "status": "IN_STOCK"
   }
 ]
