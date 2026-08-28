@@ -1,8 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
 import Storefront from './pages/Storefront';
-import Catalog from './pages/Catalog';
-import Cart from './pages/Cart';
+import CatalogPage from './pages/CatalogPage';
+import CartPage from './pages/CartPage';
 import VendorDashboard from './pages/VendorDashboard';
 import { useAuthStore } from './store/authStore';
 
@@ -26,8 +26,8 @@ function App() {
       <main className="max-w-[1280px] mx-auto p-4 md:p-8">
         <Routes>
           <Route path="/" element={<Storefront />} />
-          <Route path="/catalog" element={<Catalog />} />
-          <Route path="/cart" element={<Cart />} />
+          <Route path="/catalog" element={<CatalogPage />} />
+          <Route path="/cart" element={<CartPage />} />
           <Route path="/vendor/dashboard" element={<VendorDashboard />} />
           {/* Catch all for testing nav links */}
           <Route path="*" element={<div className="p-8 text-center text-on-surface-variant">Page not implemented yet</div>} />
