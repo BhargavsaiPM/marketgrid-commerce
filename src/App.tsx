@@ -4,6 +4,9 @@ import Storefront from './pages/Storefront';
 import CatalogPage from './pages/CatalogPage';
 import CartPage from './pages/CartPage';
 import VendorDashboard from './pages/VendorDashboard';
+import VendorInventory from './pages/VendorInventory';
+import VendorOrders from './pages/VendorOrders';
+import VendorPortalLayout from './components/VendorPortalLayout';
 import { useAuthStore } from './store/authStore';
 
 function App() {
@@ -28,7 +31,13 @@ function App() {
           <Route path="/" element={<Storefront />} />
           <Route path="/catalog" element={<CatalogPage />} />
           <Route path="/cart" element={<CartPage />} />
-          <Route path="/vendor/dashboard" element={<VendorDashboard />} />
+
+          <Route path="/vendor" element={<VendorPortalLayout />}>
+            <Route path="dashboard" element={<VendorDashboard />} />
+            <Route path="inventory" element={<VendorInventory />} />
+            <Route path="orders" element={<VendorOrders />} />
+          </Route>
+
           {/* Catch all for testing nav links */}
           <Route path="*" element={<div className="p-8 text-center text-on-surface-variant">Page not implemented yet</div>} />
         </Routes>
