@@ -4,6 +4,7 @@
     "vendorId": "v1",
     "name": "Aria Wireless Earbuds Pro",
     "price": 89.99,
+    "originalPrice": 129.99,
     "currency": "USD",
     "stockCount": 142,
     "status": "IN_STOCK"
@@ -13,6 +14,7 @@
     "vendorId": "v1",
     "name": "Halo Smart Display 7in",
     "price": 59.99,
+    "originalPrice": 89.99,
     "currency": "USD",
     "stockCount": 6,
     "status": "LOW_STOCK"
@@ -22,6 +24,7 @@
     "vendorId": "v1",
     "name": "Nova 4K Action Camera",
     "price": 129.99,
+    "originalPrice": 159.99,
     "currency": "USD",
     "stockCount": 24,
     "status": "IN_STOCK"
@@ -40,6 +43,7 @@
     "vendorId": "v2",
     "name": "Linen Weave Throw Blanket",
     "price": 34.50,
+    "originalPrice": 49.99,
     "currency": "USD",
     "stockCount": 58,
     "status": "IN_STOCK"
@@ -67,6 +71,7 @@
     "vendorId": "v3",
     "name": "TrailFlex Running Shoes",
     "price": 74.00,
+    "originalPrice": 99.00,
     "currency": "USD",
     "stockCount": 210,
     "status": "IN_STOCK"

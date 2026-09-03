@@ -12,6 +12,10 @@ import AdminOverview from './pages/AdminOverview';
 import AdminVendors from './pages/AdminVendors';
 import AdminDisputes from './pages/AdminDisputes';
 import { useAuthStore } from './store/authStore';
+import VendorsPage from './pages/VendorsPage';
+import VendorDetail from './pages/VendorDetail';
+import DealsPage from './pages/DealsPage';
+import SellPage from './pages/SellPage';
 
 function App() {
   const { login, logout, session } = useAuthStore();
@@ -33,6 +37,10 @@ function App() {
       <main className="max-w-[1280px] mx-auto p-4 md:p-8">
         <Routes>
           <Route path="/" element={<Storefront />} />
+          <Route path="/vendors" element={<VendorsPage />} />
+          <Route path="/vendor/:id" element={<VendorDetail />} />
+          <Route path="/deals" element={<DealsPage />} />
+          <Route path="/sell" element={<SellPage />} />
           <Route path="/catalog" element={<CatalogPage />} />
           <Route path="/cart" element={<CartPage />} />
 
