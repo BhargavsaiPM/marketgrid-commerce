@@ -6,4 +6,5 @@ export interface ProductDTO {
   currency: 'USD';
   stockCount: number;
   status: 'IN_STOCK' | 'LOW_STOCK' | 'OUT_OF_STOCK';
+  originalPrice?: number;
 }

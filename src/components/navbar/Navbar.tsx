@@ -24,21 +24,17 @@ const Navbar = () => {
   const handleDropdownEnter = (menu: string) => setActiveDropdown(menu);
   const handleDropdownLeave = () => setActiveDropdown(null);
 
-  // Helper to check active state based on route
-
   // Custom nav item component with proper styling and active state
   const NavItem = ({ label, path, hasDropdown = false, onMouseEnter, onMouseLeave, isNeutral = false }: any) => {
     // Determine active state - strict rules per requirement
     let active = false;
 
-    if (!isNeutral) {
-      if (label === 'Categories' && location.pathname === '/catalog') active = true;
-      else if (label === 'Vendors' && location.pathname === '/vendors') active = true;
-      else if (label === 'Deals' && location.pathname === '/deals') active = true;
-      else if (label === 'Dashboard' && location.pathname === '/vendor/dashboard') active = true;
-      else if (label === 'Overview' && location.pathname === '/admin/overview') active = true;
-      // Add more specific route matches here as they are built out
-    }
+    if (label === 'Categories' && location.pathname === '/catalog') active = true;
+    else if (label === 'Vendors' && location.pathname === '/vendors') active = true;
+    else if (label === 'Deals' && location.pathname === '/deals') active = true;
+    else if (label === 'Dashboard' && location.pathname === '/vendor/dashboard') active = true;
+    else if (label === 'Overview' && location.pathname === '/admin/overview') active = true;
+    else if (label === 'Sell on MarketGrid' && location.pathname === '/sell') active = true;
 
     return (
       <div
@@ -49,13 +45,13 @@ const Navbar = () => {
         <Link
           to={path}
           className={`flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors ${
-            active && !isNeutral ? 'text-primary' : 'text-on-surface hover:text-primary'
+            active ? (isNeutral ? 'text-on-surface' : 'text-primary') : 'text-on-surface hover:text-primary'
           }`}
         >
           {label}
           {hasDropdown && <ChevronDown size={14} className="opacity-70" />}
         </Link>
-        {active && !isNeutral && (
+        {active && (
           <motion.div
             layoutId="activeNavIndicator"
             className="absolute bottom-0 left-0 right-0 h-[2px] bg-primary"
@@ -425,6 +421,5 @@ const Navbar = () => {
     </nav>
   );
 };
-
 
 export default Navbar;

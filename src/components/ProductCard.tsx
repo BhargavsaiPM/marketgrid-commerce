@@ -53,6 +53,11 @@ export function ProductCard({ product, vendor }: ProductCardProps) {
         <div className="mt-auto">
           <div className="text-xl font-mono font-bold text-on-surface mb-3">
             ${product.price.toFixed(2)}
+            {product.originalPrice && (
+              <span className="text-sm font-normal text-on-surface-variant line-through ml-2">
+                ${product.originalPrice.toFixed(2)}
+              </span>
+            )}
           </div>
 
           <div className="flex items-center justify-between">
