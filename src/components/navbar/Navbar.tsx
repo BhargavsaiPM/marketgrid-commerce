@@ -44,7 +44,7 @@ const Navbar = () => {
       >
         <Link
           to={path}
-          className={`flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors ${
+          className={`flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors hover:bg-surface-variant rounded-md ${
             active ? (isNeutral ? 'text-on-surface' : 'text-primary') : 'text-on-surface hover:text-primary'
           }`}
         >
@@ -176,7 +176,7 @@ const Navbar = () => {
                       </div>
                       <div className="text-right">
                         <div className="text-sm font-bold font-mono text-primary">${product.price.toFixed(2)}</div>
-                        <div className="text-xs text-on-surface-variant line-through">${(product.price * 1.2).toFixed(2)}</div>
+                        {product.originalPrice && <div className="text-xs text-on-surface-variant line-through">${product.originalPrice.toFixed(2)}</div>}
                       </div>
                     </Link>
                   ))}
@@ -329,22 +329,24 @@ const Navbar = () => {
             </button>
           </div>
 
-          {/* Cart */}
-          <Link to="/cart" className="relative w-9 h-9 flex items-center justify-center rounded-full hover:bg-surface-variant text-on-surface transition-colors">
-            <ShoppingCart size={18} />
-            <AnimatePresence>
-              {cartCount > 0 && (
-                <motion.div
-                  key={cartCount}
-                  initial={{ scale: 0.5, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  className="absolute -top-1 -right-1 min-w-[18px] h-[18px] rounded-full bg-primary flex items-center justify-center px-1"
-                >
-                  <span className="text-[10px] font-bold text-on-primary font-mono">{cartCount}</span>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </Link>
+          {/* Cart - Only for customers */}
+          {role === 'customer' && (
+            <Link to="/cart" className="relative w-9 h-9 flex items-center justify-center rounded-full hover:bg-surface-variant text-on-surface transition-colors">
+              <ShoppingCart size={18} />
+              <AnimatePresence>
+                {cartCount > 0 && (
+                  <motion.div
+                    key={cartCount}
+                    initial={{ scale: 0.5, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    className="absolute -top-1 -right-1 min-w-[18px] h-[18px] rounded-full bg-primary flex items-center justify-center px-1"
+                  >
+                    <span className="text-[10px] font-bold text-on-primary font-mono">{cartCount}</span>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </Link>
+          )}
 
           <div className="w-px h-6 bg-outline-variant hidden sm:block"></div>
 

@@ -11,6 +11,7 @@ import AdminLayout from './components/AdminLayout';
 import AdminOverview from './pages/AdminOverview';
 import AdminVendors from './pages/AdminVendors';
 import AdminDisputes from './pages/AdminDisputes';
+import AdminUsersPage from './pages/AdminUsersPage';
 import { useAuthStore } from './store/authStore';
 import VendorsPage from './pages/VendorsPage';
 import VendorDetail from './pages/VendorDetail';
@@ -49,6 +50,9 @@ function App() {
             <Route path="overview" element={<AdminOverview />} />
             <Route path="vendors" element={<AdminVendors />} />
             <Route path="disputes" element={<AdminDisputes />} />
+            <Route path="users/customers" element={<AdminUsersPage />} />
+            <Route path="users/vendors" element={<AdminUsersPage />} />
+            <Route path="users/admins" element={<AdminUsersPage />} />
           </Route>
 
           <Route path="/vendor" element={<VendorPortalLayout />}>
