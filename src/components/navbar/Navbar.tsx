@@ -79,7 +79,7 @@ const Navbar = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}
-              className="absolute top-full left-0 mt-2 w-[600px] glass-1 rounded-xl shadow-floating border border-outline-variant overflow-hidden z-50"
+              className="absolute top-full left-0 mt-2 w-[600px] glass-2 rounded-xl shadow-floating border border-outline-variant overflow-hidden z-50"
             >
               <div className="flex bg-surface-container-low">
                 <div className="w-1/3 p-6 bg-surface-container">
@@ -119,7 +119,7 @@ const Navbar = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}
-              className="absolute top-full left-0 mt-2 w-[600px] glass-1 rounded-xl shadow-floating border border-outline-variant overflow-hidden z-50"
+              className="absolute top-full left-0 mt-2 w-[600px] glass-2 rounded-xl shadow-floating border border-outline-variant overflow-hidden z-50"
             >
               <div className="flex bg-surface-container-low">
                 <div className="w-1/3 p-6 bg-surface-container">
@@ -159,7 +159,7 @@ const Navbar = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}
-              className="absolute top-full left-0 mt-2 w-[600px] glass-1 rounded-xl shadow-floating border border-outline-variant overflow-hidden z-50"
+              className="absolute top-full left-0 mt-2 w-[600px] glass-2 rounded-xl shadow-floating border border-outline-variant overflow-hidden z-50"
             >
               <div className="flex bg-surface-container-low">
                 <div className="w-1/3 p-6 bg-surface-container">
@@ -205,7 +205,7 @@ const Navbar = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}
-              className="absolute top-full left-0 mt-2 w-48 glass-1 rounded-lg shadow-floating border border-outline-variant py-2 z-50 flex flex-col"
+              className="absolute top-full left-0 mt-2 w-48 glass-2 rounded-lg shadow-floating border border-outline-variant py-2 z-50 flex flex-col"
             >
               <Link to="/vendor/inventory" className="px-4 py-2 text-sm text-on-surface hover:bg-surface-variant hover:text-primary transition-colors">Manage Stock</Link>
               <Link to="/vendor/inventory/bulk" className="px-4 py-2 text-sm text-on-surface hover:bg-surface-variant hover:text-primary transition-colors">Bulk Upload</Link>
@@ -223,7 +223,7 @@ const Navbar = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}
-              className="absolute top-full left-0 mt-2 w-48 glass-1 rounded-lg shadow-floating border border-outline-variant py-2 z-50 flex flex-col"
+              className="absolute top-full left-0 mt-2 w-48 glass-2 rounded-lg shadow-floating border border-outline-variant py-2 z-50 flex flex-col"
             >
               <Link to="/vendor/orders" className="px-4 py-2 text-sm text-on-surface hover:bg-surface-variant hover:text-primary transition-colors">All Orders</Link>
               <Link to="/vendor/orders/pending" className="px-4 py-2 text-sm text-on-surface hover:bg-surface-variant hover:text-primary transition-colors">Pending Fulfillment</Link>
@@ -249,7 +249,7 @@ const Navbar = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}
-              className="absolute top-full left-0 mt-2 w-48 glass-1 rounded-lg shadow-floating border border-outline-variant py-2 z-50 flex flex-col"
+              className="absolute top-full left-0 mt-2 w-48 glass-2 rounded-lg shadow-floating border border-outline-variant py-2 z-50 flex flex-col"
             >
               <Link to="/admin/vendors" className="px-4 py-2 text-sm text-on-surface hover:bg-surface-variant hover:text-primary transition-colors">All Vendors</Link>
               <Link to="/admin/vendors/kyc" className="px-4 py-2 text-sm text-on-surface hover:bg-surface-variant hover:text-primary transition-colors">KYC Review Queue</Link>
@@ -267,7 +267,7 @@ const Navbar = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}
-              className="absolute top-full left-0 mt-2 w-48 glass-1 rounded-lg shadow-floating border border-outline-variant py-2 z-50 flex flex-col"
+              className="absolute top-full left-0 mt-2 w-48 glass-2 rounded-lg shadow-floating border border-outline-variant py-2 z-50 flex flex-col"
             >
               <Link to="/admin/users/customers" className="px-4 py-2 text-sm text-on-surface hover:bg-surface-variant hover:text-primary transition-colors">Customers</Link>
               <Link to="/admin/users/vendors" className="px-4 py-2 text-sm text-on-surface hover:bg-surface-variant hover:text-primary transition-colors">Vendors</Link>
@@ -381,7 +381,7 @@ const Navbar = () => {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
-                        className="absolute top-full right-0 mt-2 w-48 glass-1 rounded-lg shadow-floating border border-outline-variant py-2 z-50 flex flex-col"
+                        className="absolute top-full right-0 mt-2 w-48 glass-2 rounded-lg shadow-floating border border-outline-variant py-2 z-50 flex flex-col"
                       >
                         <div className="px-4 py-2 border-b border-outline-variant mb-2">
                           <div className="text-sm font-bold text-on-surface truncate">{session.user.name}</div>
