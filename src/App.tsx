@@ -12,6 +12,7 @@ import AdminOverview from './pages/AdminOverview';
 import AdminVendors from './pages/AdminVendors';
 import AdminDisputes from './pages/AdminDisputes';
 import AdminUsersPage from './pages/AdminUsersPage';
+import AccountPage from './pages/AccountPage';
 import { useAuthStore } from './store/authStore';
 import VendorsPage from './pages/VendorsPage';
 import VendorDetail from './pages/VendorDetail';
@@ -43,6 +44,7 @@ function App() {
           <Route path="/deals" element={<DealsPage />} />
           <Route path="/sell" element={<SellPage />} />
           <Route path="/catalog" element={<CatalogPage />} />
+          <Route path="/account" element={<AccountPage />} />
           <Route path="/cart" element={<CartPage />} />
 
           <Route path="/admin" element={<AdminLayout />}>
