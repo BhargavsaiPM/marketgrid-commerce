@@ -29,11 +29,17 @@ const Navbar = () => {
     // Determine active state - strict rules per requirement
     let active = false;
 
-    if (label === 'Categories' && location.pathname === '/catalog') active = true;
-    else if (label === 'Vendors' && location.pathname === '/vendors') active = true;
-    else if (label === 'Deals' && location.pathname === '/deals') active = true;
-    else if (label === 'Dashboard' && location.pathname === '/vendor/dashboard') active = true;
-    else if (label === 'Overview' && location.pathname === '/admin/overview') active = true;
+    if (label === 'Categories' && location.pathname.startsWith('/catalog')) active = true;
+    else if (label === 'Vendors' && location.pathname.startsWith('/vendors')) active = true;
+    else if (label === 'Deals' && location.pathname.startsWith('/deals')) active = true;
+    else if (label === 'Dashboard' && location.pathname.startsWith('/vendor/dashboard')) active = true;
+    else if (label === 'Inventory' && location.pathname.startsWith('/vendor/inventory')) active = true;
+    else if (label === 'Orders' && location.pathname.startsWith('/vendor/orders')) active = true;
+    else if (label === 'Analytics' && location.pathname === '/vendor/analytics') active = true;
+    else if (label === 'Overview' && location.pathname.startsWith('/admin/overview')) active = true;
+    else if (label === 'Vendors' && location.pathname.startsWith('/admin/vendors')) active = true;
+    else if (label === 'Users' && location.pathname.startsWith('/admin/users')) active = true;
+    else if (label === 'Reports' && location.pathname === '/admin/reports') active = true;
     else if (label === 'Sell on MarketGrid' && location.pathname === '/sell') active = true;
 
     return (

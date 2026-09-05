@@ -12,6 +12,7 @@
     --color-surface-container: #F0F0F0;
     --color-surface-container-high: #EAEAEA;
     --color-surface-container-highest: #E4E4E4;
+    --color-surface-variant: #E0E0E0;
 
     --color-on-surface: #121318;
     --color-on-surface-variant: #484555;
@@ -68,6 +69,7 @@
     --color-surface-container: #1e1f25;
     --color-surface-container-high: #292a2f;
     --color-surface-container-highest: #33343a;
+    --color-surface-variant: #33343a;
 
     --color-on-surface: #e3e2e9;
     --color-on-surface-variant: #c9c4d8;
@@ -153,4 +155,9 @@
 @keyframes flow-vertical {
   0% { background-position: 0 100%; }
   100% { background-position: 0 -100%; }
+}
+@layer utilities {
+  .hover\:bg-surface-variant:hover {
+    background-color: var(--color-surface-variant);
+  }
 }
