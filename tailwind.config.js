@@ -16,6 +16,7 @@ export default {
         'surface-container': 'var(--color-surface-container)',
         'surface-container-high': 'var(--color-surface-container-high)',
         'surface-container-highest': 'var(--color-surface-container-highest)',
+        'surface-variant': 'var(--color-surface-variant)',
         'on-surface': 'var(--color-on-surface)',
         'on-surface-variant': 'var(--color-on-surface-variant)',
         'inverse-surface': 'var(--color-inverse-surface)',
