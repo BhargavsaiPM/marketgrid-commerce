@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Search, ShoppingCart, ChevronDown, User, Package, Box, LogOut, Menu, X, Settings } from 'lucide-react';
 import { useCartStore } from '../../store/cartStore';
@@ -17,12 +17,23 @@ const Navbar = () => {
 
   // State for desktop dropdowns
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleDropdownEnter = (menu: string) => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    setActiveDropdown(menu);
+  };
+
+  const handleDropdownLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setActiveDropdown(null);
+    }, 600);
+  };
 
   const role = session?.user?.role || 'customer';
   const cartCount = getTotalItemsCount();
-
-  const handleDropdownEnter = (menu: string) => setActiveDropdown(menu);
-  const handleDropdownLeave = () => setActiveDropdown(null);
 
   // Custom nav item component with proper styling and active state
   const NavItem = ({ label, path, hasDropdown = false, onMouseEnter, onMouseLeave, isNeutral = false }: any) => {
@@ -72,12 +83,11 @@ const Navbar = () => {
 
   const renderCustomerNav = () => (
     <>
-      <div className="flex h-full items-center" onMouseLeave={handleDropdownLeave}>
+      <div className="flex h-full items-center" onMouseLeave={handleDropdownLeave} onMouseEnter={() => handleDropdownEnter('categories')}>
         <NavItem
           label="Categories"
           path="/catalog"
           hasDropdown
-          onMouseEnter={() => handleDropdownEnter('categories')}
         />
         <AnimatePresence>
           {activeDropdown === 'categories' && (
@@ -112,12 +122,11 @@ const Navbar = () => {
         </AnimatePresence>
       </div>
 
-      <div className="flex h-full items-center" onMouseLeave={handleDropdownLeave}>
+      <div className="flex h-full items-center" onMouseLeave={handleDropdownLeave} onMouseEnter={() => handleDropdownEnter('vendors')}>
         <NavItem
           label="Vendors"
           path="/vendors"
           hasDropdown
-          onMouseEnter={() => handleDropdownEnter('vendors')}
         />
         <AnimatePresence>
           {activeDropdown === 'vendors' && (
@@ -152,12 +161,11 @@ const Navbar = () => {
         </AnimatePresence>
       </div>
 
-      <div className="flex h-full items-center" onMouseLeave={handleDropdownLeave}>
+      <div className="flex h-full items-center" onMouseLeave={handleDropdownLeave} onMouseEnter={() => handleDropdownEnter('deals')}>
         <NavItem
           label="Deals"
           path="/deals"
           hasDropdown
-          onMouseEnter={() => handleDropdownEnter('deals')}
         />
         <AnimatePresence>
           {activeDropdown === 'deals' && (
@@ -203,8 +211,8 @@ const Navbar = () => {
     <>
       <NavItem label="Dashboard" path="/vendor/dashboard" />
 
-      <div className="relative flex h-full items-center" onMouseLeave={handleDropdownLeave}>
-        <NavItem label="Inventory" path="/vendor/inventory" hasDropdown onMouseEnter={() => handleDropdownEnter('inventory')} />
+      <div className="relative flex h-full items-center" onMouseLeave={handleDropdownLeave} onMouseEnter={() => handleDropdownEnter('inventory')}>
+        <NavItem label="Inventory" path="/vendor/inventory" hasDropdown />
         <AnimatePresence>
           {activeDropdown === 'inventory' && (
             <motion.div
@@ -221,8 +229,8 @@ const Navbar = () => {
         </AnimatePresence>
       </div>
 
-      <div className="relative flex h-full items-center" onMouseLeave={handleDropdownLeave}>
-        <NavItem label="Orders" path="/vendor/orders" hasDropdown onMouseEnter={() => handleDropdownEnter('orders')} />
+      <div className="relative flex h-full items-center" onMouseLeave={handleDropdownLeave} onMouseEnter={() => handleDropdownEnter('orders')}>
+        <NavItem label="Orders" path="/vendor/orders" hasDropdown />
         <AnimatePresence>
           {activeDropdown === 'orders' && (
             <motion.div
@@ -247,8 +255,8 @@ const Navbar = () => {
     <>
       <NavItem label="Overview" path="/admin/overview" />
 
-      <div className="relative flex h-full items-center" onMouseLeave={handleDropdownLeave}>
-        <NavItem label="Vendors" path="/admin/vendors" hasDropdown onMouseEnter={() => handleDropdownEnter('admin-vendors')} />
+      <div className="relative flex h-full items-center" onMouseLeave={handleDropdownLeave} onMouseEnter={() => handleDropdownEnter('admin-vendors')}>
+        <NavItem label="Vendors" path="/admin/vendors" hasDropdown />
         <AnimatePresence>
           {activeDropdown === 'admin-vendors' && (
             <motion.div
@@ -265,8 +273,8 @@ const Navbar = () => {
         </AnimatePresence>
       </div>
 
-      <div className="relative flex h-full items-center" onMouseLeave={handleDropdownLeave}>
-        <NavItem label="Users" path="/admin/users" hasDropdown onMouseEnter={() => handleDropdownEnter('admin-users')} />
+      <div className="relative flex h-full items-center" onMouseLeave={handleDropdownLeave} onMouseEnter={() => handleDropdownEnter('admin-users')}>
+        <NavItem label="Users" path="/admin/users" hasDropdown />
         <AnimatePresence>
           {activeDropdown === 'admin-users' && (
             <motion.div
@@ -373,10 +381,9 @@ const Navbar = () => {
                 )}
 
                 {/* Avatar Menu */}
-                <div className="relative" onMouseLeave={() => setActiveDropdown(null)}>
+                <div className="relative" onMouseLeave={handleDropdownLeave} onMouseEnter={() => handleDropdownEnter('avatar')}>
                   <button
                     className="w-9 h-9 rounded-full bg-surface-variant border border-outline-variant flex items-center justify-center text-on-surface hover:ring-2 hover:ring-primary/50 transition-all"
-                    onMouseEnter={() => setActiveDropdown('avatar')}
                   >
                     <User size={16} />
                   </button>
