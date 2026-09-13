@@ -128,7 +128,7 @@ export default function OrderTrackingPage() {
                         <div key={step.id} className="relative z-10 flex flex-col items-center gap-3 w-1/5">
                           <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm transition-all duration-500 shadow-sm ${
                             isCompleted ? 'bg-primary text-on-primary ring-2 ring-primary ring-offset-2 ring-offset-background' :
-                            isCurrent ? 'bg-surface border-2 border-primary text-primary shadow-[0_0_15px_rgba(108,99,255,0.4)] animate-pulse' :
+                            isCurrent ? 'bg-surface border-2 border-primary text-primary ' :
                             'bg-surface-container border border-outline-variant text-on-surface-variant'
                           }`}>
                             {isCompleted ? <Check size={16} /> : (isCurrent ? <MapPin size={14} /> : step.id)}
