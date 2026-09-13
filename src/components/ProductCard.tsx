@@ -12,14 +12,6 @@ export function ProductCard({ product, vendor }: ProductCardProps) {
   const addItemToCart = useCartStore((state) => state.addItem);
   const isOutOfStock = product.status === 'OUT_OF_STOCK';
 
-  const getStatusColor = (status: ProductDTO['status']) => {
-    switch(status) {
-      case 'IN_STOCK': return 'bg-secondary';
-      case 'LOW_STOCK': return 'bg-tertiary';
-      case 'OUT_OF_STOCK': return 'bg-error';
-      default: return 'bg-outline';
-    }
-  };
 
   const getStatusLabel = (status: ProductDTO['status']) => {
     switch(status) {
@@ -51,21 +43,18 @@ export function ProductCard({ product, vendor }: ProductCardProps) {
         </h3>
 
         <div className="mt-auto">
-          <div className="text-xl font-mono font-bold text-on-surface mb-3">
+          <div className="text-lg font-bold text-gray-900 mb-3">
             ${product.price.toFixed(2)}
             {product.originalPrice && (
-              <span className="text-sm font-normal text-on-surface-variant line-through ml-2">
+              <span className="text-gray-400 line-through text-sm ml-2">
                 ${product.originalPrice.toFixed(2)}
               </span>
             )}
           </div>
 
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-1.5">
-              <span className={`w-2 h-2 rounded-full ${getStatusColor(product.status)}`} />
-              <span className="text-[10px] uppercase tracking-wider font-mono font-bold text-on-surface-variant">
-                {getStatusLabel(product.status)}
-              </span>
+            <div className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+              {getStatusLabel(product.status)}
             </div>
 
             <button

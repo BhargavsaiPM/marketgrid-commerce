@@ -34,7 +34,7 @@ export default function CatalogPage() {
     <div className="flex flex-col lg:flex-row gap-8 pb-12 w-full">
       {/* Sidebar Filters */}
       <aside className="lg:w-1/4 xl:w-1/5 shrink-0">
-        <div className="sticky top-24 glass-1 p-6 rounded-xl border border-outline-variant flex flex-col gap-6 max-h-[calc(100vh-120px)] overflow-y-auto hide-scrollbar">
+        <div className="sticky top-24 glass-1 p-8 rounded-xl border border-outline-variant flex flex-col gap-6 max-h-[calc(100vh-120px)] overflow-y-auto hide-scrollbar">
           <div className="flex items-center gap-2 mb-2 pb-4 border-b border-outline-variant">
             <Filter size={18} className="text-primary" />
             <h2 className="font-headline font-bold text-lg text-on-surface">Filters</h2>
@@ -43,7 +43,7 @@ export default function CatalogPage() {
           {/* Categories */}
           <div>
             <h3 className="text-sm font-bold uppercase tracking-wider text-on-surface-variant mb-3 font-mono">Categories</h3>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col space-y-3 py-4">
               {['Electronics', 'Home & Living', 'Sports', 'Beauty'].map(cat => (
                 <label key={cat} className="flex items-center gap-3 cursor-pointer group">
                   <div className="w-4 h-4 rounded-sm border border-outline-variant group-hover:border-primary flex items-center justify-center transition-colors">
@@ -60,7 +60,7 @@ export default function CatalogPage() {
           {/* Vendors */}
           <div>
             <h3 className="text-sm font-bold uppercase tracking-wider text-on-surface-variant mb-3 font-mono">Vendors</h3>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col space-y-3 py-4">
               {vendors.map(vendor => (
                 <label key={vendor.id} className="flex items-center gap-3 cursor-pointer group">
                   <div className="w-4 h-4 rounded-sm border border-outline-variant group-hover:border-primary flex items-center justify-center transition-colors"></div>
@@ -76,9 +76,9 @@ export default function CatalogPage() {
           <div>
             <h3 className="text-sm font-bold uppercase tracking-wider text-on-surface-variant mb-3 font-mono">Price Range</h3>
             <div className="flex items-center gap-2">
-              <input type="number" placeholder="Min" className="w-full bg-surface-container-lowest border border-outline-variant rounded p-2 text-sm text-on-surface focus:outline-none focus:border-primary" />
+              <input type="number" placeholder="Min" className="w-full h-10 px-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
               <span className="text-on-surface-variant">-</span>
-              <input type="number" placeholder="Max" className="w-full bg-surface-container-lowest border border-outline-variant rounded p-2 text-sm text-on-surface focus:outline-none focus:border-primary" />
+              <input type="number" placeholder="Max" className="w-full h-10 px-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
             </div>
           </div>
 
@@ -87,7 +87,7 @@ export default function CatalogPage() {
           {/* Stock Status */}
           <div>
             <h3 className="text-sm font-bold uppercase tracking-wider text-on-surface-variant mb-3 font-mono">Availability</h3>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 space-y-2 py-4">
               <button className="px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20 text-xs font-medium">In Stock</button>
               <button className="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant border border-outline-variant text-xs font-medium hover:bg-surface-variant transition-colors">Low Stock</button>
             </div>

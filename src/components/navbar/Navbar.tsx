@@ -394,7 +394,7 @@ const Navbar = () => {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
-                        className="absolute top-full right-0 mt-2 w-56 glass-2 rounded-xl shadow-floating border border-outline-variant overflow-hidden z-50 flex flex-col"
+                        className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-100 z-50 flex flex-col"
                       >
                         <div className="p-4 border-b border-outline-variant bg-surface-container-low flex flex-col gap-0.5">
                           <div className="text-sm font-bold text-on-surface truncate">{session.user.name}</div>
