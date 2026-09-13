@@ -13,6 +13,7 @@ import AdminVendors from './pages/AdminVendors';
 import AdminDisputes from './pages/AdminDisputes';
 import AdminUsersPage from './pages/AdminUsersPage';
 import AccountPage from './pages/AccountPage';
+import CheckoutPage from './pages/CheckoutPage';
 import { useAuthStore } from './store/authStore';
 import VendorsPage from './pages/VendorsPage';
 import VendorDetail from './pages/VendorDetail';
@@ -46,6 +47,8 @@ function App() {
           <Route path="/catalog" element={<CatalogPage />} />
           <Route path="/account" element={<AccountPage />} />
           <Route path="/cart" element={<CartPage />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
+          <Route path="/order/:id/confirmation" element={<div className="p-12 text-center">Order Confirmation Placeholder</div>} />
 
           <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<AdminOverview />} />
