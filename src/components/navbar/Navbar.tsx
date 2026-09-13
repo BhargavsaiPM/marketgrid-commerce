@@ -387,24 +387,31 @@ const Navbar = () => {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
-                        className="absolute top-full right-0 mt-2 w-48 glass-2 rounded-lg shadow-floating border border-outline-variant py-2 z-50 flex flex-col"
+                        className="absolute top-full right-0 mt-2 w-56 glass-2 rounded-xl shadow-floating border border-outline-variant overflow-hidden z-50 flex flex-col"
                       >
-                        <div className="px-4 py-2 border-b border-outline-variant mb-2">
+                        <div className="p-4 border-b border-outline-variant bg-surface-container-low flex flex-col gap-0.5">
                           <div className="text-sm font-bold text-on-surface truncate">{session.user.name}</div>
                           <div className="text-xs text-on-surface-variant truncate">{session.user.email}</div>
                         </div>
-                        <Link to="/account/orders" className="px-4 py-2 text-sm text-on-surface hover:bg-surface-variant hover:text-primary transition-colors flex items-center gap-2">
-                          <Package size={14} /> Orders
-                        </Link>
-                        <Link to="/account" className="px-4 py-2 text-sm text-on-surface hover:bg-surface-variant hover:text-primary transition-colors flex items-center gap-2">
-                          <Settings size={14} /> Account
-                        </Link>
-                        <button
-                          onClick={() => logout()}
-                          className="w-full text-left px-4 py-2 text-sm text-error hover:bg-error-container hover:text-on-error-container transition-colors flex items-center gap-2 mt-2 border-t border-outline-variant pt-2"
-                        >
-                          <LogOut size={14} /> Log out
-                        </button>
+                        <div className="p-2 flex flex-col gap-1">
+                          <Link to="/account/orders" className="p-3 rounded-md text-sm text-on-surface hover:bg-surface-variant hover:text-primary transition-colors flex items-center gap-3 font-medium group">
+                            <Package size={16} className="text-on-surface-variant group-hover:text-primary transition-colors" />
+                            Orders
+                          </Link>
+                          <Link to="/account" className="p-3 rounded-md text-sm text-on-surface hover:bg-surface-variant hover:text-primary transition-colors flex items-center gap-3 font-medium group">
+                            <Settings size={16} className="text-on-surface-variant group-hover:text-primary transition-colors" />
+                            Account Settings
+                          </Link>
+                        </div>
+                        <div className="p-2 border-t border-outline-variant">
+                          <button
+                            onClick={() => logout()}
+                            className="w-full text-left p-3 rounded-md text-sm text-error hover:bg-error-container hover:text-on-error-container transition-colors flex items-center gap-3 font-medium group"
+                          >
+                            <LogOut size={16} className="text-error/70 group-hover:text-on-error-container transition-colors" />
+                            Log out
+                          </button>
+                        </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
