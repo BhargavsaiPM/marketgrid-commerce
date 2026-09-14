@@ -1,0 +1,9 @@
+diff --git a/index.html b/index.html
+index 0f7f748..47443d1 100644
+--- a/index.html
++++ b/index.html
+@@ -1,3 +1,4 @@
++<!-- Spark test task -->
+ <!doctype html>
+ <html lang="en">
+   <head>

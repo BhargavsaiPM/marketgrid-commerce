@@ -1,0 +1,33 @@
+{
+  "completed": [
+    "foundation-mock-data-layer",
+    "navbar-all-roles",
+    "storefront",
+    "catalog",
+    "cart",
+    "vendor-portal",
+    "admin-console",
+    "vendors-deals-sell-pages",
+    "admin-users-page",
+    "account-page-accordion"
+  ],
+  "inFlight": null,
+  "next": [
+    {
+      "id": "checkout-math-verification",
+      "description": "Verify CheckoutPage's per-vendor to grand-total arithmetic with a real multi-vendor cart"
+    },
+    {
+      "id": "order-confirmation-and-tracking",
+      "description": "Build OrderConfirmationPage and OrderTrackingPage with independent per-vendor shipment status lanes"
+    },
+    {
+      "id": "fix-surface-variant-token",
+      "description": "Fix undefined --color-surface-variant CSS token"
+    },
+    {
+      "id": "theme-toggle",
+      "description": "Wire the AccountPage theme radios and add a navbar sun/moon toggle"
+    }
+  ]
+}

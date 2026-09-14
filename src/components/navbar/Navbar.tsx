@@ -383,10 +383,11 @@ const Navbar = () => {
                 {/* Avatar Menu */}
                 <div className="relative" onMouseLeave={handleDropdownLeave} onMouseEnter={() => handleDropdownEnter('avatar')}>
                   <button
-                    className="w-9 h-9 rounded-full bg-surface-variant border border-outline-variant flex items-center justify-center text-on-surface hover:ring-2 hover:ring-primary/50 transition-all"
-                  >
-                    <User size={16} />
-                  </button>
+  className="w-9 h-9 rounded-full bg-surface-variant border border-outline-variant flex items-center justify-center text-on-surface hover:ring-2 hover:ring-primary/50 transition-all"
+  onMouseEnter={() => setActiveDropdown('avatar')}
+>
+  <User size={16} />
+</button>
 
                   <AnimatePresence>
                     {activeDropdown === 'avatar' && (

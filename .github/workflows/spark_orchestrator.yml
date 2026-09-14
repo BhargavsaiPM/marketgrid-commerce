@@ -1,0 +1,39 @@
+name: Spark Orchestrator
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch: {}
+
+# Prevent overlapping runs from racing each other
+concurrency:
+  group: spark-orchestrator
+  cancel-in-progress: false
+
+jobs:
+  orchestrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Spark dependencies
+        run: npm install
+        working-directory: ./spark   # see Step 4 for why this subfolder
+
+      - name: Run Spark cycle
+        working-directory: ./spark
+        env:
+          JULES_API_KEY: ${{ secrets.JULES_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO_OWNER: BhargavsaiPM
+          REPO_NAME: marketgrid-commerce
+        run: node run-cycle.js
+        
