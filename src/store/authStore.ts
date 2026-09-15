@@ -36,7 +36,3 @@ export const useAuthStore = create<AuthState>((set) => ({
     });
   },
 }));
-
-if (import.meta.env.DEV) {
-  (window as any).__authStore = useAuthStore;
-}
